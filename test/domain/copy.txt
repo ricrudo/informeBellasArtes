@@ -1,0 +1,235 @@
+
+    def test_Person(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.Person(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.Person).filter_by(id_person=p.id).first()
+    
+    def test_Login(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.Login(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.Login).filter_by(id_person=p.id).first()
+    
+    def test_MisionalDocencia(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.MisionalDocencia(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.MisionalDocencia).filter_by(id_person=p.id).first()
+    
+    def test_Part_ProcesosCurriculares(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.Part_ProcesosCurriculares(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.Part_ProcesosCurriculares).filter_by(id_person=p.id).first()
+    
+    def test_GruposInvestigacion(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.GruposInvestigacion(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.GruposInvestigacion).filter_by(id_person=p.id).first()
+    
+    def test_RedesAcademicas(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.RedesAcademicas(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.RedesAcademicas).filter_by(id_person=p.id).first()
+    
+    def test_ProyectosInvestigacionCreacion(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.ProyectosInvestigacionCreacion(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.ProyectosInvestigacionCreacion).filter_by(id_person=p.id).first()
+    
+    def test_ProductosCreacion(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.ProductosCreacion(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.ProductosCreacion).filter_by(id_person=p.id).first()
+    
+    def test_PublicacionArticulos(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.PublicacionArticulos(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.PublicacionArticulos).filter_by(id_person=p.id).first()
+    
+    def test_PublicacionLibros(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.PublicacionLibros(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.PublicacionLibros).filter_by(id_person=p.id).first()
+    
+    def test_ParticipacionEventos(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.ParticipacionEventos(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.ParticipacionEventos).filter_by(id_person=p.id).first()
+    
+    def test_ConveniosInterinstitucionales(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.ConveniosInterinstitucionales(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.ConveniosInterinstitucionales).filter_by(id_person=p.id).first()
+    
+    def test_Patentes(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.Patentes(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.Patentes).filter_by(id_person=p.id).first()
+    
+    def test_DireccionTesis(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.DireccionTesis(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.DireccionTesis).filter_by(id_person=p.id).first()
+    
+    def test_EvaluacionTesis(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.EvaluacionTesis(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.EvaluacionTesis).filter_by(id_person=p.id).first()
+    
+    def test_CoordSemilleros(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.CoordSemilleros(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.CoordSemilleros).filter_by(id_person=p.id).first()
+    
+    def test_ConvocatoriasSemilleros(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.ConvocatoriasSemilleros(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.ConvocatoriasSemilleros).filter_by(id_person=p.id).first()
+    
+    def test_MovilidadEstudiantesSemilleros(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.MovilidadEstudiantesSemilleros(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.MovilidadEstudiantesSemilleros).filter_by(id_person=p.id).first()
+    
+    def test_JovenesInvestigadores(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.JovenesInvestigadores(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.JovenesInvestigadores).filter_by(id_person=p.id).first()
+    
+    def test_OtrasInvestigacion(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.OtrasInvestigacion(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.OtrasInvestigacion).filter_by(id_person=p.id).first()
+    
+    def test_OtrasRecursos(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.OtrasRecursos(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.OtrasRecursos).filter_by(id_person=p.id).first()
+    
+    def test_PropuestasEducacion(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.PropuestasEducacion(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.PropuestasEducacion).filter_by(id_person=p.id).first()
+    
+    def test_GestionConvenios(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.GestionConvenios(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.GestionConvenios).filter_by(id_person=p.id).first()
+    
+    def test_ProyeccionPoblacionPriorizada(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.ProyeccionPoblacionPriorizada(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.ProyeccionPoblacionPriorizada).filter_by(id_person=p.id).first()
+    
+    def test_AsignacionMisionalBienestar(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.AsignacionMisionalBienestar(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.AsignacionMisionalBienestar).filter_by(id_person=p.id).first()
+    
+    def test_AtendidosBienestar(self):
+        p = self.session.query(models.Person).filter_by(last_names="Ost Bers").first()
+        valid_data = models.AtendidosBienestar(
+            id_person = p.id
+        )
+        #self.session.add(valid_data)
+        #self.session.commit()
+        #r = self.session.query(models.AtendidosBienestar).filter_by(id_person=p.id).first()
+    

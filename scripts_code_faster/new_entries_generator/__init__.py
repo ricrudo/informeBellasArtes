@@ -1,0 +1,1 @@
+from new_entries_generator.new_entries_generator import new_entries_generator

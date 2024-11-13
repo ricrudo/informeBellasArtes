@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="main-title">
+	¡Hola, {{name_user}}!
+</h2>
+<div class='msg-welcome text-block'>Te damos la bienvenida a tu informe Semestral Docente en línea.</div>
+<div class="contenedor_opt_init">
+	<a href="/inicio/secciones">
+		<div class='box-init bg-orange'>
+			<p class='box-init-text'>crear borrador</p>
+			<p class='box-init-text'>Actualizar borrador</p>
+		</div>
+	</a>
+	<a href="/inicio">
+		<div class='box-init bg-blue-1'>
+			<p class='box-init-text'>Revisión y envío del informe final</p>
+		</div>
+	</a>
+	<a href="/inicio">
+		<div class='box-init bg-blue-2'>
+			<p class='box-init-text'>consulta de informes enviados</p>
+		</div>
+	</a>
+</div>
+
+<div class="btn-container form-item">
+	<img class="logo-ua" src="{{ url_for('static', filename='images/logo_ua.png') }}" alt="Universidad del Atlántico">
+</div>
+{% endblock %}
+

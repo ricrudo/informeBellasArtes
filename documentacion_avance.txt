@@ -1,0 +1,11 @@
+Ya estan creados todos los html necesarios para la encuesta, pero solo el encabezado.
+
+No funciona bien el orden de los formularios despues del 4.17
+
+La arquitectura es algo como lo siguiente
+- En la carpeta app/interface/flask_app/ se encuentra todo lo necesario para flask, excepto por los blueprints que se registran en el main.py
+- El archivo app/interface/flask_app/routes.py tiene el orden en el que deben ir los formularios, pero esta fallando a partir del 4.17
+- La carpeta app/interface/flask_app/templates/ contiene todos los archivos html
+- 
+
+flask --app main run --debug

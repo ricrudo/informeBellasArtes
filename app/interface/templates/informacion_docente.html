@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="main-title">
+	informe semestral docente 2023-2
+</h2>
+
+<div class="contenedor_sections_menu">
+	<div class="cont-opt-sections bg-orange">
+		<p class="opt-sections-text">1. información docente</p>
+	</div>
+</div>
+<div class="form-item">
+	<h4 class="label-login">
+		Nombre completo
+	</h4>
+	<div class="fake-input-1">
+		<p> {{nombre}} </p>
+	</div>
+</div>
+
+<div class="form-item">
+	<h4 class="label-login">
+		Periodo de informe
+	</h4>
+	<div class="fake-input-1">
+		<p> {{periodo}} </p>
+	</div>
+</div>
+
+<div class="form-item">
+	<h4 class="label-login">
+		Facultad
+	</h4>
+	<div class="fake-input-1">
+		<p> {{facultad}} </p>
+	</div>
+</div>
+
+<div class="form-item">
+	<h4 class="label-login">
+		Programa(s)
+	</h4>
+	<div class="fake-input-1">
+		<p> {{programa}} </p>
+	</div>
+</div>
+
+<form method="POST">
+	<div class="form-item">
+		<label for="nivel-formacion">
+			<h4 class="label-login">
+				Nivel máximo de formación
+			</h4>
+		</label>
+		<select class='drop-down dd-v1' name="nivel-formacion" id="nivel-formacion">
+			{% for nivel in niveles%}
+			<option value="{{nivel}}" {% if nivel == nivel_actual %}selected{% endif %}>{{nivel}}</option>
+			{% endfor %}
+		</select>
+	</div>
+
+	<div class="cont-atras-sig-btns">
+		<button type="submit" name="action" value="back" class="btn-atras btn-general">
+			atrás
+		</button>
+		<button type="submit" name="action" value="next" class="btn-siguiente btn-general">
+			siguiente
+		</button>
+	</div>
+
+
+</form>
+
+
+{% endblock %}
+
+

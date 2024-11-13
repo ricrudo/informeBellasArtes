@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Informe de Gestión | Docentes Bellas Artes</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<link href="{{ cssFile}}" rel="stylesheet">-->
+		<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div class="main-container">
+			<div class="main-topbar">
+				<div onclick="logout_toggle()" class="menu-container">
+					<div class="line-menu"></div>
+					<div class="line-menu"></div>
+					<div class="line-menu"></div>
+				</div>
+				<div id="logout-btn" class="logout hidden-element">
+					<a href="/logout" class="logout-text">cerrar sesion</a>
+				</div>
+			</div>
+			{% block content %}
+			{% endblock %}
+		</div>
+		<script src="{{ url_for('static', filename='js/main_scripts.js') }}"></script>
+	</body>
+</html>
+
