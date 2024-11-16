@@ -5,7 +5,7 @@ from app.domain.models import MisionalDocenciaPTA
 import json
 
 '''
-{"materia": null, "code": null, "programa": null, "status_done": null, "observaciones": null, "contenidos_especiales": null}
+{"materia": null, "code": null, "programa": null, "status_done": null, "observaciones": null, "motivos_cancel": null, "bool_internacional": null, "internacional": null, "bool_tic": null, "tic": null}
 '''
 
 
@@ -16,21 +16,31 @@ def new_entry_user(initform:dict):
     error = []
     for index_entry, content in initform['section2_1'].items():
         index_used.append(int(index_entry))
-        if len(content) != 7:
+        if len(content) != 10:
             error.append(f'Error: se han enviado {len(content)} datos. Se esperaban 7 datos.')
             continue
-        if not all([x in content for x in (['materia', 'code', 'programa', 'status_done', 'observaciones', 'contenidos_especiales', 'motivos_cancel'])]):
+        if not all([x in content for x in (['materia', 'code', 'programa', 'status_done', 'observaciones', 'motivos_cancel', "bool_internacional", "internacional", "bool_tic", "tic"])]):
             error.append(f'Los keys no corresponden a los que recibe la base de datos.')
             continue
         if content['status_done'] == 'si':
             content['motivos_cancel'] = None
+            if content['bool_internacional'] != 'si':
+                content['internacional'] = None
+            if content['bool_tic'] != 'si':
+                content['tic'] = None
         elif content['status_done'] == 'no':
             content['observaciones'] = None
-            content['contenidos_especiales'] = None
+            content['bool_internacional'] = None
+            content['internacional'] = None
+            content['bool_tic'] = None
+            content['tic'] = None
         else:
             content['motivos_cancel'] = None
             content['observaciones'] = None
-            content['contenidos_especiales'] = None
+            content['bool_internacional'] = None
+            content['internacional'] = None
+            content['bool_tic'] = None
+            content['tic'] = None
         content['user'] = initform['user']
         content['period_spam'] = initform['period_spam']
         content['index_entry'] = int(index_entry)
@@ -49,7 +59,10 @@ def _create_entry(form:dict):
         programa = form['programa'],
         status_done = form['status_done'],
         observaciones = form['observaciones'],
-        contenidos_especiales = form['contenidos_especiales'],
+        bool_internacional = form['bool_internacional'],
+        internacional = form['internacional'],
+        bool_tic = form['bool_tic'], 
+        tic = form['tic'],
         motivos_cancel = form['motivos_cancel'],
         period_spam = form['period_spam']
     )

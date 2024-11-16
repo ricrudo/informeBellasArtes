@@ -91,8 +91,10 @@ class MisionalDocenciaPTA(db.Base):
     status_done = sqla.Column(sqla.VARCHAR(3))
     # Respuesta a la pregunta: Observaciones sobre el desarrollo de las actividades docentes
     observaciones = sqla.Column(sqla.Text)
-    # Respuesta a la pregunta: Contenidos que abodardan tematicas ciudadanas y de responsabilidad social
-    contenidos_especiales = sqla.Column(sqla.Text)
+    bool_internacional = sqla.Column(sqla.VARCHAR(3))
+    internacional = sqla.Column(sqla.Text)
+    bool_tic = sqla.Column(sqla.VARCHAR(3)) 
+    tic = sqla.Column(sqla.Text)
     # Respuesta a la pregunta: motivos de cancelacion
     motivos_cancel = sqla.Column(sqla.Text)
     period_spam = sqla.Column(sqla.VARCHAR(10), nullable=False)
@@ -116,8 +118,10 @@ class MisionalDocenciaAdicionales(db.Base):
     code_add = sqla.Column(sqla.VARCHAR(50))
     # Respuesta a la pregunta: Observaciones sobre el desarrollo de las actividades docentes
     observaciones_add = sqla.Column(sqla.Text)
-    # Respuesta a la pregunta: Contenidos que abodardan tematicas ciudadanas y de responsabilidad social
-    contenidos_especiales_add = sqla.Column(sqla.Text)
+    bool_internacional_add = sqla.Column(sqla.VARCHAR(3))
+    internacional_add = sqla.Column(sqla.Text)
+    bool_tic_add = sqla.Column(sqla.VARCHAR(3)) 
+    tic_add = sqla.Column(sqla.Text)
     period_spam = sqla.Column(sqla.VARCHAR(10), nullable=False)
 
 class Part_ProcesosCurriculares(db.Base):

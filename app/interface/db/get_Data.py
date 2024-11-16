@@ -82,6 +82,7 @@ def getAllDataUser(id_person, period_spam):
             content[section] = formatNoDataforActiveQuestion(section, activateQuestions)
         if data:
             content[section] = formatData(data, section, activateQuestions)
+
     return json.dumps(content)
 
 def formatNoDataforActiveQuestion(section, activateQuestions):
@@ -124,7 +125,6 @@ def formatData(data, section, activateQuestions):
                 entries[index_entry]['autores'] = formatParticipantes(entries[index_entry]['autores'])
             elif section in ["section4_7", "section4_13", "section5_3"]:
                 entries[index_entry]['participantes'] = formatParticipantes(entries[index_entry]['participantes'])
-
         if section in NEEDACTIVEQUESTION:
             answers = {key: value for key, value in entries.items()}
             entries = dict()
