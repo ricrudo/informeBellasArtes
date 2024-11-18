@@ -1,7 +1,6 @@
 from app.interface import db
 import sqlalchemy as sqla
 
-
 class Person(db.Base):
     __tablename__ = 'persons'
 
