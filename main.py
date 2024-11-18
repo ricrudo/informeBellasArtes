@@ -1,5 +1,5 @@
 from flask import Flask, request, send_from_directory
-from flask_jwt_extended import JWTManager, create_access_token,, create_refresh_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import JWTManager, create_access_token, create_refresh_token, jwt_required, get_jwt_identity
 from pathlib import Path
 import json
 
