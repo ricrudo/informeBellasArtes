@@ -40,7 +40,7 @@ def recoveryPassword(data, app):
         setTempPass(person, tempPass)
     else:
         updatePassword(user, tempPass, True)
-    email_thread = threading.Thread(target=email_sender.sendTemporalPass, args=(person, tempPass, app))
+    email_thread = threading.Thread(target=email_sender.sendTemporalPass, args=(email, tempPass, app))
     email_thread.start()
     destino = Path.cwd() / 'temp.txt'
     destino.write_text(tempPass)

@@ -2,5 +2,4 @@
 **/*.sqlite
 venv/
 userFiles/
-
 **/*.pdf

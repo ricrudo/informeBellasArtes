@@ -4,8 +4,8 @@ from pathlib import Path
 import json
 
 from app.interface.db import person_exists
-
 from app.interface.db import get_Data, set_Data, filesManager, userValidation
+from app.interface.email.email_sender import testEmail
 
 from flask_cors import CORS
 from datetime import timedelta
@@ -24,8 +24,21 @@ CORS(app)
 app.secret_key = '0664b5da52f853402fec9426f86764f2c5a5222d98a0807c4fefbdea92248b84'
 app.config['JWT_SECRET_KEY'] = '0664b5da52f853402fec9426f86764f2c5a5222d98a0807c4fefbdea92248b84'
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=24)
+app.config['MAIL_SERVER'] = 'riedmusicapp.com'  # Reemplaza con el servidor SMTP proporcionado
+app.config['MAIL_PORT'] = 465  # Puerto para SSL/TLS
+app.config['MAIL_USE_TLS'] = False  # No usar STARTTLS
+app.config['MAIL_USE_SSL'] = True  # Usar SSL/TLS
+app.config['MAIL_USERNAME'] = 'informebellasartes@riedmusicapp.com'  # Tu dirección de correo electrónico
+app.config['MAIL_PASSWORD'] = 'pBSIRmip=26-'  # Contraseña del correo
 
 jwt = JWTManager(app)
+
+@app.route("/hello_test", methods=['GET'])
+def hello_test():
+    '''
+    Punto de entrada de la app
+    '''
+    return "parece que funciona el backend del informe"
 
 @app.route("/", methods=['POST'])
 @jwt_required()
@@ -111,3 +124,11 @@ def setPassword():
     response = userValidation.setPassword(data, email)
     finalResponse = json.dumps({'message': response})
     return finalResponse
+
+
+@app.route("/test_email", methods=['GET'])
+def test_email():
+    '''
+    Punto de entrada de la app
+    '''
+    return testEmail(app)
