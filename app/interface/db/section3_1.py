@@ -16,6 +16,7 @@ def new_entry_user(initform:dict):
     content = {}
     error = []
     for index_entry, form in initform['section3_1'].items():
+        breakpoint()
         index_used.append(int(index_entry))
         if len(form) != 5:
             error.append(f'Error: se han enviado {len(form)} datos. Se esperaban 5 datos.')
@@ -27,7 +28,7 @@ def new_entry_user(initform:dict):
             if not proceso:
                 proceso = key.split('_')[1]
                 content['proceso'] = proceso
-            content[key.replace(proceso, '')] = value
+            content[key.replace(f'_{proceso}', '_')] = value
         if not all([x in content for x in ('proceso', 'status_', 'type_', 'misional_', 'programa_', 'observaciones_')]):
             error.append(f'Los keys no corresponden a los que recibe la base de datos.')
         content = clean_data.cleanFromStatus(content, 'status_', ['status_', 'proceso'])

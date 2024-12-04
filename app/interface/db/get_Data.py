@@ -7,6 +7,7 @@ NEEDACTIVEQUESTION = ('section4_1', 'section4_3', 'section4_4', 'section4_5', 's
 
 def getTables(section=None):
     tables = {
+    'accesos': models.Login,
     'section1_1' : models.Person,
     'section2_1' : models.MisionalDocenciaPTA,
     'section2_2' : models.MisionalDocenciaAdicionales,
@@ -41,7 +42,7 @@ def getTables(section=None):
     'activesections' : models.ActiveSections,
     }
     if section is None:
-        return tables
+        return {key:value for key, value in tables.items() if key not in ['accesos', 'activesections']}
     elif section == 'section2_1':
         return tables['section2_1'], tables['section2_2']
     result = tables.get(section, f"la seccion {section} no existe")
@@ -50,7 +51,10 @@ def getTables(section=None):
 
 
 def getAllData(section):
-    tables = getTables(section)
+    if section == 'section2_all':
+        tables = getTables('section2_1')
+    else:
+        tables = getTables(section)
     if isinstance(tables, str):
         return tables
     result = {}
@@ -65,6 +69,8 @@ def getAllData(section):
                     continue
                 entry[field] = getattr(record, field)
             result[name].append(entry)
+    if section == 'section2_all':
+        return section2_all(result)
     return result
 
 def getAllDataUser(id_person, period_spam):
@@ -163,6 +169,28 @@ def organizeSection4_2(record, blacklist):
     entry[f'link_{name_red}'] = record.link
     entry[f'update_{name_red}'] = record.update_date
     return entry
+
+def section2_all(result):
+    response = result
+    for entry in result['misional_docencia_adicionales']:
+        new_entry = {}
+        new_entry['code'] = entry['code_add']
+        new_entry['id'] = f"{entry['id']}_add"
+        new_entry['id_person'] = entry['id_person']
+        new_entry['programa'] = entry['programa_add']
+        new_entry['status_done'] = 'si'
+        new_entry['index_entry'] = entry['index_entry']
+        new_entry['materia'] = entry['materia_add']
+        new_entry['bool_internacional'] = entry['bool_internacional_add']
+        new_entry['internacional'] = entry['internacional_add']
+        new_entry['bool_tic'] = entry['bool_tic_add']
+        new_entry['tic'] = entry['tic_add']
+        new_entry['motivos_cancel'] = ''
+        new_entry['observaciones'] = entry['observaciones_add']
+        new_entry['period_spam'] = entry['period_spam']
+    del response['misional_docencia_adicionales']
+    return response
+
 
 
 

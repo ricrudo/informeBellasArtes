@@ -1,28 +1,87 @@
 import enum
 
 class PartProcesosNames(enum.Enum):
-    autoevaluacion = 1
-    acreditacion = 2
-    curricular = 3
-    estudio = 4
-    disciplinar = 5
-    silabos = 6
-    grado = 7
-    misional = 8
-    oportuna = 9
-    nuevos = 10
-    facultad = 11
+    autoevaluacion = "Proceso de Autoevaluación"
+    acreditacion = "Apoyo a proceso de acreditación"
+    curricular = "Comité Curricular de Programa"
+    estudio = "Modificación de planes de estudio"
+    disciplinar = "Comité de área disciplinar del Programa"
+    silabos = "Revisión o actualización de sílabos"
+    grado = "Comité de trabajo de grado"
+    misional = "Comité misional de la Facultad"
+    oportuna = "Estrategias implementadas para la graduación oportuna"
+    nuevos = "Creación de nuevos Programas de Pregrado y/o Postgrado"
+    facultad = "Participación en el Consejo de Facultad"
+    virtuales = "Diseño de cursos virtuales"
+    factibilidad = "Estudios de factibilidd de programas académicos postgraduales"
 
 class PartProcesosProMis(enum.Enum):
     program = 1
     misional = 2
 
 class ProgramasFacultad(enum.Enum):
-    licenciatura_en_musica = 1
-    artes_plasticas = 2
-    arte_dramatico = 3
-    danza = 4
-    musica = 5
+    licenciatura_en_musica = "Licenciatura en música"
+    artes_plasticas = "Artes plásticas"
+    arte_dramatico = "Arte dramático"
+    danza = "Danza"
+    musica = "Música"
+
+class MisionalesFacultad(enum.Enum):
+    mis_curricular = "Comité Misional Curricular"
+    mis_investigacion = "Comité misional de investigación"
+    mis_extension = "Comité misional de extensión"
+    mis_bienestar = "Comité misional bienestar"
+    mis_artistico = "Comité misional artístico"
+    mis_trb_grado = "Comité de trabajo de grado"
+    mis_autoevaluacion = "Comité de Autoevaluación"
+
+class LineasInvestigacionFacultad(enum.Enum):
+    musical = "Creación musical"
+    cultura = "Desarrollo y cultura"
+    estetica = "Estética"
+    pedagogia = "Pedagogía"
+
+class GruposInvesFacultad(enum.Enum):
+    arte_accion = "ARTE – ACCIÓN"
+    sam = "Sapiencia, Arte y Música (S.A.M.)"
+    feliza = "Feliza Bursztyn: Redes, Arte, Cultura"
+    videns = "Investigaciones Visuales del Caribe VIDENS"
+    tei = "Teatro, Espacio e Interactividad TEI"
+
+class TiposProductoCreacion(enum.Enum):
+    gnc = 'Generación de nuevo conocimiento'
+    dti = 'Desarrollo tecnológico e innovación'
+    asc = 'Apropiación social del conocimiento'
+    frh = 'Formación de Recurso Humano en CTeI'
+
+
+class TipoProductosPatentesRegistroAutor(enum.Enum):
+    artistica = "Obras artísticas"
+    audiovisuales = "Obras audiovisuales"
+    musicales = "Registros musicales"
+    software = "Registros de software"
+    otro = "Otro"
+
+
+class OtrasInvestigacionTipoParticipacion(enum.Enum):
+    par = "Participación como par evaluador"
+    redes = "Participación en redes de investigación"
+    editoriales = "Participación en comités editoriales de revistas especializadas"
+    cientifico = "Organización de evento científico"
+    design = "Diseño de cursos de pregrado, maestría y/o doctorado"
+    propuestas = "Elaboración de propuestas o proyectos de políticas públicas"
+    fortalecimiento = "Fortalecimiento de capacidades emprendedoras"
+
+class otrasActividades4_17(enum.Enum):
+    creacion = "Recursos digitales disponibles en el repositorio institucional"
+    design = "Estrategias para la permanencia y graduación oportuna"
+    actividades = "Actividades con componente nacional / internacional en el aula de clases"
+    participacion = "Capacitaciones en competencias digitales"
+    capacitacion = "Capacitaciones relacionadas con educación inclusiva, interculturalidad y pluridiversidad"
+
+
+##############
+
 
 class RedesAcademicasNames(enum.Enum):
     cvlac = 'cvl'
@@ -59,14 +118,6 @@ class ConvocatoriasSemillerosTipo(enum.Enum):
     interna = 1
     externa = 2
 
-class OtrasInvestigacionTipo(enum.Enum):
-    par = 'participacion como par evaluador (incluyendo par evaluador de redcolsi)'
-    red = 'participacion en redes de investigacion'
-    edi = 'participacion en comites editoriales de revistas especializadas'
-    ctf = 'organizacion de evento cientifico'
-    dis = 'diseno de cursos de pregrado, maestria y/o doctorado'
-    ppp = 'participacion en elaboracion de propuestas o proyectos de politicas publicas'
-    frt = 'actividades para el fortalecimiento de capacidades emprendedoras'
 
 class OtrasRecursosTipo(enum.Enum):
     dig = 'recursos digitales creados disponibles en el repositorio institucional de la biblioteca digital'
@@ -147,9 +198,3 @@ class PatenteTipo(enum.Enum):
     musicales = 3
     software = 4
 
-class GruposInvesFacultad(enum.Enum):
-    art = 'ARTE – ACCIÓN'
-    sam = 'Sapiencia, Arte y Música (S.A.M.)'
-    fel = 'Feliza Bursztyn: Redes, Arte, Cultura'
-    vid = 'Investigaciones Visuales del Caribe VIDENS'
-    tei = 'Teatro, Espacio e Interactividad _TEI_'

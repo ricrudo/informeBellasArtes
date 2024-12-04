@@ -6,6 +6,7 @@ import json
 from app.interface.db import person_exists
 from app.interface.db import get_Data, set_Data, filesManager, userValidation
 from app.interface.email.email_sender import testEmail
+from app.interface.excel_openpyxl import excel_creator
 
 from flask_cors import CORS
 from datetime import timedelta
@@ -75,7 +76,6 @@ def getDataUser():
     if period_spam:
         return get_Data.getAllDataUser(id_person, period_spam)
 
-
 @app.route("/get/<section>", methods=['GET'])
 def getData(section):
     '''
@@ -83,6 +83,13 @@ def getData(section):
     '''
     result = get_Data.getAllData(section)
     return result
+
+@app.route("/download_excel", methods=['GET'])
+def downloadExcel():
+    '''
+    Recopila la información y la devuelve en formato excel
+    '''
+    return excel_creator.get_informe_final()
 
 
 @app.route('/getFile', methods=['GET'])
@@ -102,7 +109,7 @@ def login():
     response = userValidation.login(data)
     finalResponse = {'message': response}
     if response in ['acceso_aprobado', 'change_password']:
-        email = data.get('username')
+        email = data.get('username').lower().strip()
         access_token = create_access_token(identity=email)
         finalResponse['Authorization'] = f"Bearer {access_token}"
         refresh_token = create_refresh_token(identity=email)
@@ -125,10 +132,11 @@ def setPassword():
     finalResponse = json.dumps({'message': response})
     return finalResponse
 
-
 @app.route("/test_email", methods=['GET'])
 def test_email():
     '''
     Punto de entrada de la app
     '''
     return testEmail(app)
+
+

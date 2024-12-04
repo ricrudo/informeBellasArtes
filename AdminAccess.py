@@ -45,7 +45,7 @@ def saveToDB(dataPtas):
                 index_entry += 1
 
 def loadDB():
-    path = Path.cwd() / 'parse_pta' / 'ptas_analizados2024-2.json'
+    path = Path.cwd() / 'parse_pta' / 'TestUser.json'
     dataPtas = loadData(path)
     saveToDB(dataPtas)
 

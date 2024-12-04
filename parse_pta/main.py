@@ -50,7 +50,7 @@ class Pta_analyzer:
                 if '@' in email:
                     while '  ' in name:
                         name = name.replace("  ", " ")
-                    data[name.strip()] = email.strip()
+                    data[name.strip()] = email.strip().lower()
             except:
                 logging.warning(f'No fue posible obtener email en la linea {i} del archivo {self.ORIGIN_EMAILS.name}')
         return data

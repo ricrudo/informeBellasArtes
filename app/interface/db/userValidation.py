@@ -12,9 +12,18 @@ from app.interface.email import email_sender
 
 from pathlib import Path
 
+import logging
+
+# Configuración para guardar los logs en un archivo
+logging.basicConfig(
+    filename='mi_log.log',         # Nombre del archivo de logs
+    level=logging.INFO,             # Nivel mínimo de registro
+    format='%(asctime)s - %(levelname)s - %(message)s'  # Formato del log
+)
+
 
 def login(data):
-    email = data.get('username')
+    email = data.get('username').lower().strip()
     password = data.get('password')
     user = db.session.query(Login).filter_by(email=email).first()
     if  not user:
@@ -30,7 +39,9 @@ def login(data):
 
 
 def recoveryPassword(data, app):
-    email = data.get('username')
+    email = data.get('username').lower().strip()
+    logging.info(f'Intentando crear tempPass para {email}')
+
     person = db.session.query(Person).filter_by(email=email).first()
     if not person:
         return "usuario_no_registrado"
@@ -40,8 +51,9 @@ def recoveryPassword(data, app):
         setTempPass(person, tempPass)
     else:
         updatePassword(user, tempPass, True)
-    email_thread = threading.Thread(target=email_sender.sendTemporalPass, args=(email, tempPass, app))
-    email_thread.start()
+    email_sender.sendTemporalPass(email, tempPass, app)
+    #email_thread = threading.Thread(target=email_sender.sendTemporalPass, args=(email, tempPass, app))
+    #email_thread.start()
     destino = Path.cwd() / 'temp.txt'
     destino.write_text(tempPass)
     return "Correo_segundo_plano"
