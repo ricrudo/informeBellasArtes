@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask, request, send_from_directory, send_file
 from flask_jwt_extended import JWTManager, create_access_token, create_refresh_token, jwt_required, get_jwt_identity
 from pathlib import Path
 import json
@@ -89,8 +89,20 @@ def downloadExcel():
     '''
     Recopila la información y la devuelve en formato excel
     '''
-    return excel_creator.get_informe_final()
+    namefile = excel_creator.get_informe_final()
+    file_path = Path.cwd() / 'userFiles' / 'informe_final' / namefile
+    return send_file(
+        file_path, 
+        as_attachment=True,  # Descarga en lugar de mostrar en navegador
+        download_name=namefile  # Nombre sugerido para el archivo
+    )
 
+@app.route('/getsoportes/<periodo>/<section>/<filename>', methods=['GET'])
+def get_soportes(periodo, section, filename):
+    path = Path.cwd() / 'userFiles' / periodo / section
+    if path.exists() and (path / filename).exists():
+        return send_from_directory(path, filename, as_attachment=True)
+    return 'no file'
 
 @app.route('/getFile', methods=['GET'])
 @jwt_required()
